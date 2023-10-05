@@ -27,7 +27,7 @@
   border: 2px solid black;
   margin-top: 20px;
   margin-left: 20px;
-  /* background-color: red; */
+  text-overflow: ellipsis
 }
 
 .card:last-child {
@@ -35,12 +35,23 @@
 }
 
 .title {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
+  word-wrap: break-word;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .titleDescription {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
+  word-wrap: break-word;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+
 }
 
 .addButton {

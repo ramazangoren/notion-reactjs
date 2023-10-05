@@ -36,25 +36,37 @@ app.get("/api/get", (req, res) => {
     })
 });
 
-app.delete("/api/delete", (req, res) => {
-  const sql = "DELETE FROM notes";
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-  });
-});
+// app.delete("/api/delete", (req, res) => {
+//   const sql = "DELETE FROM notes";
+//   db.query(sql, (err, result) => {
+//     if (err) throw err;
+//   });
+// });
 
-app.delete("/api/delete/:id", (req, res) => {
-  const id = req.params.id;
-  const sql  = "DELETE FROM notes WHERE id=?"
-  db.query(sql, id,  (err, result) => {
-      if (err) console.log(err);
-      res.send(result)
-  })
-});
+// app.delete("/api/delete/:id", (req, res) => {
+//   const id = req.params.id;
+//   const sql  = "DELETE FROM notes WHERE id=?"
+//   db.query(sql, id,  (err, result) => {
+//       if (err) console.log(err);
+//       res.send(result)
+//   })
+// });
 
 // app.get("/", (req, res) => {
 //      res.send('hello')
 // });
+
+
+app.delete('/deleteData', (req, res) => {
+  console.log(req.body)
+  const { ids } = req.body;
+  const query = `DELETE FROM notes WHERE id IN (${ids.join(',')})`;
+  db.query(query, (error, results) => {
+    console.log(error, results)
+  });
+  res.status(200)
+  res.send()
+});
 
 app.listen(3001, () => {
   console.log("listening on 3001");
