@@ -1,11 +1,11 @@
-import AddItem from './AddItem';
+// import AddItem from './AddItem';
 import Home from './home';
 
 function App() {
   return (
     <div>
        <Home></Home>
-       <AddItem></AddItem>
+       {/* <AddItem></AddItem> */}
     </div>
   );
 }
